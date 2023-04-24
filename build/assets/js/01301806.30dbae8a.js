@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[58],{63891:e=>{e.exports=JSON.parse('{"sourceUrl":"https://github.com/Neverlife-Studios/Paper-Siege-Docs/blob/master","baseUrl":"/Paper-Siege-Docs/","classOrder":[],"apiCategories":[]}')}}]);
