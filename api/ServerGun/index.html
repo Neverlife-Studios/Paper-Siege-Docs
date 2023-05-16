@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="plugin-moonwave plugin-id-moonwave">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v2.3.1">
+<title data-rh="true">ServerGun | Paper-Siege-Docs</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://Neverlife-Studios.github.io/Paper-Siege-Docs/api/ServerGun"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="ServerGun | Paper-Siege-Docs"><meta data-rh="true" name="description" content="Handles the server side of the gun"><meta data-rh="true" property="og:description" content="Handles the server side of the gun"><link data-rh="true" rel="canonical" href="https://Neverlife-Studios.github.io/Paper-Siege-Docs/api/ServerGun"><link data-rh="true" rel="alternate" href="https://Neverlife-Studios.github.io/Paper-Siege-Docs/api/ServerGun" hreflang="en"><link data-rh="true" rel="alternate" href="https://Neverlife-Studios.github.io/Paper-Siege-Docs/api/ServerGun" hreflang="x-default"><link rel="stylesheet" href="/Paper-Siege-Docs/assets/css/styles.19a5646f.css">
+<link rel="preload" href="/Paper-Siege-Docs/assets/js/runtime~main.8334222b.js" as="script">
+<link rel="preload" href="/Paper-Siege-Docs/assets/js/main.bef82d91.js" as="script">
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function e(e){document.documentElement.setAttribute("data-theme",e)}var t=function(){var e=null;try{e=localStorage.getItem("theme")}catch(e){}return e}();null!==t?e(t):window.matchMedia("(prefers-color-scheme: dark)").matches?e("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,e("light"))}()</script><div id="__docusaurus">
+<div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/Paper-Siege-Docs/"><b class="navbar__title text--truncate">Paper-Siege-Docs</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/Paper-Siege-Docs/api/">API</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/Neverlife-Studios/Paper-Siege-Docs" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="searchBox_ZlJk"><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input type="search" id="search_input_react" placeholder="Press S to Search..." aria-label="Search" class="navbar__search-input search-bar"></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0 docPageContainer_wNNk"><div class="docPage_Dpn1"><div class="docSidebarContainer_o_re"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Paper-Siege-Docs/api/AssetDeliveryService">​Asset​Delivery​Service</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Paper-Siege-Docs/api/ClientController">​Client​Controller</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Paper-Siege-Docs/api/ClientGun">​Client​Gun</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Paper-Siege-Docs/api/ClientGunMod">​Client​Gun​Mod</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Paper-Siege-Docs/api/GunStats">​Gun​Stats</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Paper-Siege-Docs/api/PartService">​Part​Service</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Paper-Siege-Docs/api/PlayerProfile">​Player​Profile</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Paper-Siege-Docs/api/ServerController">​Server​Controller</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/Paper-Siege-Docs/api/ServerGun">​Server​Gun</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Paper-Siege-Docs/api/ServerGunMod">​Server​Gun​Mod</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Paper-Siege-Docs/api/Spring">​Spring</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Paper-Siege-Docs/api/Viewmodel">​Viewmodel</a></li></ul></nav></div></div><main class="docMainContainer_HJE1"><div class="container padding-vert--lg"><div class="row"><div class="col docItemCol_MU3C"><div class="docItemContainer_Wv98"><article><div class="member_J0w1 markdown"><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_oUs_"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><header><h1 class="docTitle_mZRt" style="text-decoration:none"><span style="display:inline-block">Server</span><span style="display:inline-block">Gun</span></h1><div class="luaClassTags_EipM"><span class="badge_Ba2I" style="color:#00CC67"><span class="badgeTooltip_cWXP">This item only works when running on the server.</span><span class="badgeToolTipTail_H9D_"><svg fill="#00CC67" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 90 90" role="img" aria-label="This item only works when running on the server."><polygon points="6.125,72.421 58.544,88.523 58.544,24.372 6.125,8.269 "></polygon><polygon points="79.818,15.77 79.868,15.755 29.615,1.453 10.328,6.318 60.102,21.609 "></polygon><path d="M61.643,78.738l22.232-6.582V17.801l-22.232,6.584V78.738z M73.811,69.257c-1.174,0-2.125-1.19-2.125-2.659  c0-1.468,0.951-2.658,2.125-2.658c1.172,0,2.123,1.19,2.123,2.658C75.934,68.066,74.982,69.257,73.811,69.257z M64.898,32.121  l16.336-4.41v7.117l-16.336,4.409V32.121z M64.898,41.292l16.336-4.41v7.116l-16.336,4.409V41.292z M64.898,50.463l16.336-4.411  v7.116l-16.336,4.411V50.463z"></path><polygon points="83.875,74.893 61.643,81.477 61.643,88.547 83.875,81.963 "></polygon></svg> <!-- -->Server</span></span></div><div>
+<p>Handles the server side of the gun</p>
+</div></header><h2 class="anchor anchorWithStickyNavbar_LWe7" id="properties">Properties<a href="#properties" class="hash-link" aria-label="Direct link to Properties" title="Direct link to Properties">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Animations"><code style="text-decoration:none">Animations</code><a href="#Animations" class="hash-link" aria-label="Direct link to Animations" title="Direct link to Animations">​</a></h3><span class="badge_Ba2I" style="color:#00CC67"><span class="badgeTooltip_cWXP">This item only works when running on the server.</span><span class="badgeToolTipTail_H9D_"><svg fill="#00CC67" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 90 90" role="img" aria-label="This item only works when running on the server."><polygon points="6.125,72.421 58.544,88.523 58.544,24.372 6.125,8.269 "></polygon><polygon points="79.818,15.77 79.868,15.755 29.615,1.453 10.328,6.318 60.102,21.609 "></polygon><path d="M61.643,78.738l22.232-6.582V17.801l-22.232,6.584V78.738z M73.811,69.257c-1.174,0-2.125-1.19-2.125-2.659  c0-1.468,0.951-2.658,2.125-2.658c1.172,0,2.123,1.19,2.123,2.658C75.934,68.066,74.982,69.257,73.811,69.257z M64.898,32.121  l16.336-4.41v7.117l-16.336,4.409V32.121z M64.898,41.292l16.336-4.41v7.116l-16.336,4.409V41.292z M64.898,50.463l16.336-4.411  v7.116l-16.336,4.411V50.463z"></path><polygon points="83.875,74.893 61.643,81.477 61.643,88.547 83.875,81.963 "></polygon></svg> <!-- -->Server</span></span><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neverlife-Studios/Paper-Siege-Docs/blob/master/src/ServerScriptService/GunSystem/ServerGun.lua#L19"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ServerGun<!-- -->.<!-- -->Animations<!-- -->:<!-- --> </code> <code class="blue_P4bS">table</code></div><div>
+<p>
+  Stores all the animation tracks, which are
+  preloaded onto the viewmodel
+</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="BodyshotDamage"><code style="text-decoration:none">BodyshotDamage</code><a href="#BodyshotDamage" class="hash-link" aria-label="Direct link to BodyshotDamage" title="Direct link to BodyshotDamage">​</a></h3><span class="badge_Ba2I" style="color:#00CC67"><span class="badgeTooltip_cWXP">This item only works when running on the server.</span><span class="badgeToolTipTail_H9D_"><svg fill="#00CC67" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 90 90" role="img" aria-label="This item only works when running on the server."><polygon points="6.125,72.421 58.544,88.523 58.544,24.372 6.125,8.269 "></polygon><polygon points="79.818,15.77 79.868,15.755 29.615,1.453 10.328,6.318 60.102,21.609 "></polygon><path d="M61.643,78.738l22.232-6.582V17.801l-22.232,6.584V78.738z M73.811,69.257c-1.174,0-2.125-1.19-2.125-2.659  c0-1.468,0.951-2.658,2.125-2.658c1.172,0,2.123,1.19,2.123,2.658C75.934,68.066,74.982,69.257,73.811,69.257z M64.898,32.121  l16.336-4.41v7.117l-16.336,4.409V32.121z M64.898,41.292l16.336-4.41v7.116l-16.336,4.409V41.292z M64.898,50.463l16.336-4.411  v7.116l-16.336,4.411V50.463z"></path><polygon points="83.875,74.893 61.643,81.477 61.643,88.547 83.875,81.963 "></polygon></svg> <!-- -->Server</span></span><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neverlife-Studios/Paper-Siege-Docs/blob/master/src/ServerScriptService/GunSystem/ServerGun.lua#L25"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ServerGun<!-- -->.<!-- -->BodyshotDamage<!-- -->:<!-- --> </code> <code class="blue_P4bS">number</code></div><div>
+<p>Damage dealt when bullet hits a body part</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="ClassName"><code style="text-decoration:none">ClassName</code><a href="#ClassName" class="hash-link" aria-label="Direct link to ClassName" title="Direct link to ClassName">​</a></h3><span class="badge_Ba2I" style="color:#00CC67"><span class="badgeTooltip_cWXP">This item only works when running on the server.</span><span class="badgeToolTipTail_H9D_"><svg fill="#00CC67" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 90 90" role="img" aria-label="This item only works when running on the server."><polygon points="6.125,72.421 58.544,88.523 58.544,24.372 6.125,8.269 "></polygon><polygon points="79.818,15.77 79.868,15.755 29.615,1.453 10.328,6.318 60.102,21.609 "></polygon><path d="M61.643,78.738l22.232-6.582V17.801l-22.232,6.584V78.738z M73.811,69.257c-1.174,0-2.125-1.19-2.125-2.659  c0-1.468,0.951-2.658,2.125-2.658c1.172,0,2.123,1.19,2.123,2.658C75.934,68.066,74.982,69.257,73.811,69.257z M64.898,32.121  l16.336-4.41v7.117l-16.336,4.409V32.121z M64.898,41.292l16.336-4.41v7.116l-16.336,4.409V41.292z M64.898,50.463l16.336-4.411  v7.116l-16.336,4.411V50.463z"></path><polygon points="83.875,74.893 61.643,81.477 61.643,88.547 83.875,81.963 "></polygon></svg> <!-- -->Server</span></span><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neverlife-Studios/Paper-Siege-Docs/blob/master/src/ServerScriptService/GunSystem/ServerGun.lua#L31"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ServerGun<!-- -->.<!-- -->ClassName<!-- -->:<!-- --> </code> <code class="blue_P4bS">string</code></div><div>
+<p>Name of the class</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Connections"><code style="text-decoration:none">Connections</code><a href="#Connections" class="hash-link" aria-label="Direct link to Connections" title="Direct link to Connections">​</a></h3><span class="badge_Ba2I" style="color:#00CC67"><span class="badgeTooltip_cWXP">This item only works when running on the server.</span><span class="badgeToolTipTail_H9D_"><svg fill="#00CC67" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 90 90" role="img" aria-label="This item only works when running on the server."><polygon points="6.125,72.421 58.544,88.523 58.544,24.372 6.125,8.269 "></polygon><polygon points="79.818,15.77 79.868,15.755 29.615,1.453 10.328,6.318 60.102,21.609 "></polygon><path d="M61.643,78.738l22.232-6.582V17.801l-22.232,6.584V78.738z M73.811,69.257c-1.174,0-2.125-1.19-2.125-2.659  c0-1.468,0.951-2.658,2.125-2.658c1.172,0,2.123,1.19,2.123,2.658C75.934,68.066,74.982,69.257,73.811,69.257z M64.898,32.121  l16.336-4.41v7.117l-16.336,4.409V32.121z M64.898,41.292l16.336-4.41v7.116l-16.336,4.409V41.292z M64.898,50.463l16.336-4.411  v7.116l-16.336,4.411V50.463z"></path><polygon points="83.875,74.893 61.643,81.477 61.643,88.547 83.875,81.963 "></polygon></svg> <!-- -->Server</span></span><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neverlife-Studios/Paper-Siege-Docs/blob/master/src/ServerScriptService/GunSystem/ServerGun.lua#L37"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ServerGun<!-- -->.<!-- -->Connections<!-- -->:<!-- --> </code> <code class="blue_P4bS">table</code></div><div>
+<p>Stores all the connections, RBXScriptSignal</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="CurrentAmmo"><code style="text-decoration:none">CurrentAmmo</code><a href="#CurrentAmmo" class="hash-link" aria-label="Direct link to CurrentAmmo" title="Direct link to CurrentAmmo">​</a></h3><span class="badge_Ba2I" style="color:#00CC67"><span class="badgeTooltip_cWXP">This item only works when running on the server.</span><span class="badgeToolTipTail_H9D_"><svg fill="#00CC67" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 90 90" role="img" aria-label="This item only works when running on the server."><polygon points="6.125,72.421 58.544,88.523 58.544,24.372 6.125,8.269 "></polygon><polygon points="79.818,15.77 79.868,15.755 29.615,1.453 10.328,6.318 60.102,21.609 "></polygon><path d="M61.643,78.738l22.232-6.582V17.801l-22.232,6.584V78.738z M73.811,69.257c-1.174,0-2.125-1.19-2.125-2.659  c0-1.468,0.951-2.658,2.125-2.658c1.172,0,2.123,1.19,2.123,2.658C75.934,68.066,74.982,69.257,73.811,69.257z M64.898,32.121  l16.336-4.41v7.117l-16.336,4.409V32.121z M64.898,41.292l16.336-4.41v7.116l-16.336,4.409V41.292z M64.898,50.463l16.336-4.411  v7.116l-16.336,4.411V50.463z"></path><polygon points="83.875,74.893 61.643,81.477 61.643,88.547 83.875,81.963 "></polygon></svg> <!-- -->Server</span></span><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neverlife-Studios/Paper-Siege-Docs/blob/master/src/ServerScriptService/GunSystem/ServerGun.lua#L43"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ServerGun<!-- -->.<!-- -->CurrentAmmo<!-- -->:<!-- --> </code> <code class="blue_P4bS">number</code></div><div>
+<p>The current ammo in the loaded gun</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="CurrentFiremode"><code style="text-decoration:none">CurrentFiremode</code><a href="#CurrentFiremode" class="hash-link" aria-label="Direct link to CurrentFiremode" title="Direct link to CurrentFiremode">​</a></h3><span class="badge_Ba2I" style="color:#00CC67"><span class="badgeTooltip_cWXP">This item only works when running on the server.</span><span class="badgeToolTipTail_H9D_"><svg fill="#00CC67" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 90 90" role="img" aria-label="This item only works when running on the server."><polygon points="6.125,72.421 58.544,88.523 58.544,24.372 6.125,8.269 "></polygon><polygon points="79.818,15.77 79.868,15.755 29.615,1.453 10.328,6.318 60.102,21.609 "></polygon><path d="M61.643,78.738l22.232-6.582V17.801l-22.232,6.584V78.738z M73.811,69.257c-1.174,0-2.125-1.19-2.125-2.659  c0-1.468,0.951-2.658,2.125-2.658c1.172,0,2.123,1.19,2.123,2.658C75.934,68.066,74.982,69.257,73.811,69.257z M64.898,32.121  l16.336-4.41v7.117l-16.336,4.409V32.121z M64.898,41.292l16.336-4.41v7.116l-16.336,4.409V41.292z M64.898,50.463l16.336-4.411  v7.116l-16.336,4.411V50.463z"></path><polygon points="83.875,74.893 61.643,81.477 61.643,88.547 83.875,81.963 "></polygon></svg> <!-- -->Server</span></span><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neverlife-Studios/Paper-Siege-Docs/blob/master/src/ServerScriptService/GunSystem/ServerGun.lua#L49"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ServerGun<!-- -->.<!-- -->CurrentFiremode<!-- -->:<!-- --> </code> <code class="blue_P4bS">string</code></div><div>
+<p>The current firemode of the gun</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Firemodes"><code style="text-decoration:none">Firemodes</code><a href="#Firemodes" class="hash-link" aria-label="Direct link to Firemodes" title="Direct link to Firemodes">​</a></h3><span class="badge_Ba2I" style="color:#00CC67"><span class="badgeTooltip_cWXP">This item only works when running on the server.</span><span class="badgeToolTipTail_H9D_"><svg fill="#00CC67" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 90 90" role="img" aria-label="This item only works when running on the server."><polygon points="6.125,72.421 58.544,88.523 58.544,24.372 6.125,8.269 "></polygon><polygon points="79.818,15.77 79.868,15.755 29.615,1.453 10.328,6.318 60.102,21.609 "></polygon><path d="M61.643,78.738l22.232-6.582V17.801l-22.232,6.584V78.738z M73.811,69.257c-1.174,0-2.125-1.19-2.125-2.659  c0-1.468,0.951-2.658,2.125-2.658c1.172,0,2.123,1.19,2.123,2.658C75.934,68.066,74.982,69.257,73.811,69.257z M64.898,32.121  l16.336-4.41v7.117l-16.336,4.409V32.121z M64.898,41.292l16.336-4.41v7.116l-16.336,4.409V41.292z M64.898,50.463l16.336-4.411  v7.116l-16.336,4.411V50.463z"></path><polygon points="83.875,74.893 61.643,81.477 61.643,88.547 83.875,81.963 "></polygon></svg> <!-- -->Server</span></span><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neverlife-Studios/Paper-Siege-Docs/blob/master/src/ServerScriptService/GunSystem/ServerGun.lua#L55"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ServerGun<!-- -->.<!-- -->Firemodes<!-- -->:<!-- --> </code> <code class="blue_P4bS">table</code></div><div>
+<p>Firemodes available for the gun</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="GunName"><code style="text-decoration:none">GunName</code><a href="#GunName" class="hash-link" aria-label="Direct link to GunName" title="Direct link to GunName">​</a></h3><span class="badge_Ba2I" style="color:#00CC67"><span class="badgeTooltip_cWXP">This item only works when running on the server.</span><span class="badgeToolTipTail_H9D_"><svg fill="#00CC67" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 90 90" role="img" aria-label="This item only works when running on the server."><polygon points="6.125,72.421 58.544,88.523 58.544,24.372 6.125,8.269 "></polygon><polygon points="79.818,15.77 79.868,15.755 29.615,1.453 10.328,6.318 60.102,21.609 "></polygon><path d="M61.643,78.738l22.232-6.582V17.801l-22.232,6.584V78.738z M73.811,69.257c-1.174,0-2.125-1.19-2.125-2.659  c0-1.468,0.951-2.658,2.125-2.658c1.172,0,2.123,1.19,2.123,2.658C75.934,68.066,74.982,69.257,73.811,69.257z M64.898,32.121  l16.336-4.41v7.117l-16.336,4.409V32.121z M64.898,41.292l16.336-4.41v7.116l-16.336,4.409V41.292z M64.898,50.463l16.336-4.411  v7.116l-16.336,4.411V50.463z"></path><polygon points="83.875,74.893 61.643,81.477 61.643,88.547 83.875,81.963 "></polygon></svg> <!-- -->Server</span></span><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neverlife-Studios/Paper-Siege-Docs/blob/master/src/ServerScriptService/GunSystem/ServerGun.lua#L61"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ServerGun<!-- -->.<!-- -->GunName<!-- -->:<!-- --> </code> <code class="blue_P4bS">string</code></div><div>
+<p>The name of the gun</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="HeadshotDamage"><code style="text-decoration:none">HeadshotDamage</code><a href="#HeadshotDamage" class="hash-link" aria-label="Direct link to HeadshotDamage" title="Direct link to HeadshotDamage">​</a></h3><span class="badge_Ba2I" style="color:#00CC67"><span class="badgeTooltip_cWXP">This item only works when running on the server.</span><span class="badgeToolTipTail_H9D_"><svg fill="#00CC67" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 90 90" role="img" aria-label="This item only works when running on the server."><polygon points="6.125,72.421 58.544,88.523 58.544,24.372 6.125,8.269 "></polygon><polygon points="79.818,15.77 79.868,15.755 29.615,1.453 10.328,6.318 60.102,21.609 "></polygon><path d="M61.643,78.738l22.232-6.582V17.801l-22.232,6.584V78.738z M73.811,69.257c-1.174,0-2.125-1.19-2.125-2.659  c0-1.468,0.951-2.658,2.125-2.658c1.172,0,2.123,1.19,2.123,2.658C75.934,68.066,74.982,69.257,73.811,69.257z M64.898,32.121  l16.336-4.41v7.117l-16.336,4.409V32.121z M64.898,41.292l16.336-4.41v7.116l-16.336,4.409V41.292z M64.898,50.463l16.336-4.411  v7.116l-16.336,4.411V50.463z"></path><polygon points="83.875,74.893 61.643,81.477 61.643,88.547 83.875,81.963 "></polygon></svg> <!-- -->Server</span></span><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neverlife-Studios/Paper-Siege-Docs/blob/master/src/ServerScriptService/GunSystem/ServerGun.lua#L67"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ServerGun<!-- -->.<!-- -->HeadshotDamage<!-- -->:<!-- --> </code> <code class="blue_P4bS">number</code></div><div>
+<p>Damage dealt when bullet hits the head</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="MaxAmmo"><code style="text-decoration:none">MaxAmmo</code><a href="#MaxAmmo" class="hash-link" aria-label="Direct link to MaxAmmo" title="Direct link to MaxAmmo">​</a></h3><span class="badge_Ba2I" style="color:#00CC67"><span class="badgeTooltip_cWXP">This item only works when running on the server.</span><span class="badgeToolTipTail_H9D_"><svg fill="#00CC67" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 90 90" role="img" aria-label="This item only works when running on the server."><polygon points="6.125,72.421 58.544,88.523 58.544,24.372 6.125,8.269 "></polygon><polygon points="79.818,15.77 79.868,15.755 29.615,1.453 10.328,6.318 60.102,21.609 "></polygon><path d="M61.643,78.738l22.232-6.582V17.801l-22.232,6.584V78.738z M73.811,69.257c-1.174,0-2.125-1.19-2.125-2.659  c0-1.468,0.951-2.658,2.125-2.658c1.172,0,2.123,1.19,2.123,2.658C75.934,68.066,74.982,69.257,73.811,69.257z M64.898,32.121  l16.336-4.41v7.117l-16.336,4.409V32.121z M64.898,41.292l16.336-4.41v7.116l-16.336,4.409V41.292z M64.898,50.463l16.336-4.411  v7.116l-16.336,4.411V50.463z"></path><polygon points="83.875,74.893 61.643,81.477 61.643,88.547 83.875,81.963 "></polygon></svg> <!-- -->Server</span></span><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neverlife-Studios/Paper-Siege-Docs/blob/master/src/ServerScriptService/GunSystem/ServerGun.lua#L73"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ServerGun<!-- -->.<!-- -->MaxAmmo<!-- -->:<!-- --> </code> <code class="blue_P4bS">number</code></div><div>
+<p>The max ammo a loaded gun can have</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="PlayerProfile"><code style="text-decoration:none">PlayerProfile</code><a href="#PlayerProfile" class="hash-link" aria-label="Direct link to PlayerProfile" title="Direct link to PlayerProfile">​</a></h3><span class="badge_Ba2I" style="color:#00CC67"><span class="badgeTooltip_cWXP">This item only works when running on the server.</span><span class="badgeToolTipTail_H9D_"><svg fill="#00CC67" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 90 90" role="img" aria-label="This item only works when running on the server."><polygon points="6.125,72.421 58.544,88.523 58.544,24.372 6.125,8.269 "></polygon><polygon points="79.818,15.77 79.868,15.755 29.615,1.453 10.328,6.318 60.102,21.609 "></polygon><path d="M61.643,78.738l22.232-6.582V17.801l-22.232,6.584V78.738z M73.811,69.257c-1.174,0-2.125-1.19-2.125-2.659  c0-1.468,0.951-2.658,2.125-2.658c1.172,0,2.123,1.19,2.123,2.658C75.934,68.066,74.982,69.257,73.811,69.257z M64.898,32.121  l16.336-4.41v7.117l-16.336,4.409V32.121z M64.898,41.292l16.336-4.41v7.116l-16.336,4.409V41.292z M64.898,50.463l16.336-4.411  v7.116l-16.336,4.411V50.463z"></path><polygon points="83.875,74.893 61.643,81.477 61.643,88.547 83.875,81.963 "></polygon></svg> <!-- -->Server</span></span><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neverlife-Studios/Paper-Siege-Docs/blob/master/src/ServerScriptService/GunSystem/ServerGun.lua#L79"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ServerGun<!-- -->.<!-- -->PlayerProfile<!-- -->:<!-- --> </code> <code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Paper-Siege-Docs/api/PlayerProfile">PlayerProfile</a></code></div><div>
+<p>The PlayerProfile</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="ShootDelay"><code style="text-decoration:none">ShootDelay</code><a href="#ShootDelay" class="hash-link" aria-label="Direct link to ShootDelay" title="Direct link to ShootDelay">​</a></h3><span class="badge_Ba2I" style="color:#00CC67"><span class="badgeTooltip_cWXP">This item only works when running on the server.</span><span class="badgeToolTipTail_H9D_"><svg fill="#00CC67" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 90 90" role="img" aria-label="This item only works when running on the server."><polygon points="6.125,72.421 58.544,88.523 58.544,24.372 6.125,8.269 "></polygon><polygon points="79.818,15.77 79.868,15.755 29.615,1.453 10.328,6.318 60.102,21.609 "></polygon><path d="M61.643,78.738l22.232-6.582V17.801l-22.232,6.584V78.738z M73.811,69.257c-1.174,0-2.125-1.19-2.125-2.659  c0-1.468,0.951-2.658,2.125-2.658c1.172,0,2.123,1.19,2.123,2.658C75.934,68.066,74.982,69.257,73.811,69.257z M64.898,32.121  l16.336-4.41v7.117l-16.336,4.409V32.121z M64.898,41.292l16.336-4.41v7.116l-16.336,4.409V41.292z M64.898,50.463l16.336-4.411  v7.116l-16.336,4.411V50.463z"></path><polygon points="83.875,74.893 61.643,81.477 61.643,88.547 83.875,81.963 "></polygon></svg> <!-- -->Server</span></span><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neverlife-Studios/Paper-Siege-Docs/blob/master/src/ServerScriptService/GunSystem/ServerGun.lua#L85"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ServerGun<!-- -->.<!-- -->ShootDelay<!-- -->:<!-- --> </code> <code class="blue_P4bS">table</code></div><div>
+<p>Shoot delay for various firemodes</p>
+</div><h2 class="anchor anchorWithStickyNavbar_LWe7" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="BuildGunModel"><code style="text-decoration:none">BuildGunModel</code><a href="#BuildGunModel" class="hash-link" aria-label="Direct link to BuildGunModel" title="Direct link to BuildGunModel">​</a></h3><span class="badge_Ba2I" style="color:#00CC67"><span class="badgeTooltip_cWXP">This item only works when running on the server.</span><span class="badgeToolTipTail_H9D_"><svg fill="#00CC67" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 90 90" role="img" aria-label="This item only works when running on the server."><polygon points="6.125,72.421 58.544,88.523 58.544,24.372 6.125,8.269 "></polygon><polygon points="79.818,15.77 79.868,15.755 29.615,1.453 10.328,6.318 60.102,21.609 "></polygon><path d="M61.643,78.738l22.232-6.582V17.801l-22.232,6.584V78.738z M73.811,69.257c-1.174,0-2.125-1.19-2.125-2.659  c0-1.468,0.951-2.658,2.125-2.658c1.172,0,2.123,1.19,2.123,2.658C75.934,68.066,74.982,69.257,73.811,69.257z M64.898,32.121  l16.336-4.41v7.117l-16.336,4.409V32.121z M64.898,41.292l16.336-4.41v7.116l-16.336,4.409V41.292z M64.898,50.463l16.336-4.411  v7.116l-16.336,4.411V50.463z"></path><polygon points="83.875,74.893 61.643,81.477 61.643,88.547 83.875,81.963 "></polygon></svg> <!-- -->Server</span></span><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neverlife-Studios/Paper-Siege-Docs/blob/master/src/ServerScriptService/GunSystem/ServerGun.lua#L93"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ServerGun<!-- -->:</code><code class="green_DgR4">BuildGunModel</code><code>(</code><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/Model" target="_blank" rel="noopener noreferrer">Model<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><span class="inlineDescription_G7Er">-- <span>
+<p>The gun model</p>
+</span></span></div><div>
+<p>Builds the gun model, creates welds, inserts sounds, particles</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="DerigGunModelCharacter"><code style="text-decoration:none">DerigGunModelCharacter</code><a href="#DerigGunModelCharacter" class="hash-link" aria-label="Direct link to DerigGunModelCharacter" title="Direct link to DerigGunModelCharacter">​</a></h3><span class="badge_Ba2I" style="color:#00CC67"><span class="badgeTooltip_cWXP">This item only works when running on the server.</span><span class="badgeToolTipTail_H9D_"><svg fill="#00CC67" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 90 90" role="img" aria-label="This item only works when running on the server."><polygon points="6.125,72.421 58.544,88.523 58.544,24.372 6.125,8.269 "></polygon><polygon points="79.818,15.77 79.868,15.755 29.615,1.453 10.328,6.318 60.102,21.609 "></polygon><path d="M61.643,78.738l22.232-6.582V17.801l-22.232,6.584V78.738z M73.811,69.257c-1.174,0-2.125-1.19-2.125-2.659  c0-1.468,0.951-2.658,2.125-2.658c1.172,0,2.123,1.19,2.123,2.658C75.934,68.066,74.982,69.257,73.811,69.257z M64.898,32.121  l16.336-4.41v7.117l-16.336,4.409V32.121z M64.898,41.292l16.336-4.41v7.116l-16.336,4.409V41.292z M64.898,50.463l16.336-4.411  v7.116l-16.336,4.411V50.463z"></path><polygon points="83.875,74.893 61.643,81.477 61.643,88.547 83.875,81.963 "></polygon></svg> <!-- -->Server</span></span><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neverlife-Studios/Paper-Siege-Docs/blob/master/src/ServerScriptService/GunSystem/ServerGun.lua#L139"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ServerGun<!-- -->:</code><code class="green_DgR4">DerigGunModelCharacter</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Derigs the gun model from the Character</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Destroy"><code style="text-decoration:none">Destroy</code><a href="#Destroy" class="hash-link" aria-label="Direct link to Destroy" title="Direct link to Destroy">​</a></h3><span class="badge_Ba2I" style="color:#00CC67"><span class="badgeTooltip_cWXP">This item only works when running on the server.</span><span class="badgeToolTipTail_H9D_"><svg fill="#00CC67" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 90 90" role="img" aria-label="This item only works when running on the server."><polygon points="6.125,72.421 58.544,88.523 58.544,24.372 6.125,8.269 "></polygon><polygon points="79.818,15.77 79.868,15.755 29.615,1.453 10.328,6.318 60.102,21.609 "></polygon><path d="M61.643,78.738l22.232-6.582V17.801l-22.232,6.584V78.738z M73.811,69.257c-1.174,0-2.125-1.19-2.125-2.659  c0-1.468,0.951-2.658,2.125-2.658c1.172,0,2.123,1.19,2.123,2.658C75.934,68.066,74.982,69.257,73.811,69.257z M64.898,32.121  l16.336-4.41v7.117l-16.336,4.409V32.121z M64.898,41.292l16.336-4.41v7.116l-16.336,4.409V41.292z M64.898,50.463l16.336-4.411  v7.116l-16.336,4.411V50.463z"></path><polygon points="83.875,74.893 61.643,81.477 61.643,88.547 83.875,81.963 "></polygon></svg> <!-- -->Server</span></span><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neverlife-Studios/Paper-Siege-Docs/blob/master/src/ServerScriptService/GunSystem/ServerGun.lua#L159"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ServerGun<!-- -->:</code><code class="green_DgR4">Destroy</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Destroys the gun, removes itself from inventory</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Equip"><code style="text-decoration:none">Equip</code><a href="#Equip" class="hash-link" aria-label="Direct link to Equip" title="Direct link to Equip">​</a></h3><span class="badge_Ba2I" style="color:#00CC67"><span class="badgeTooltip_cWXP">This item only works when running on the server.</span><span class="badgeToolTipTail_H9D_"><svg fill="#00CC67" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 90 90" role="img" aria-label="This item only works when running on the server."><polygon points="6.125,72.421 58.544,88.523 58.544,24.372 6.125,8.269 "></polygon><polygon points="79.818,15.77 79.868,15.755 29.615,1.453 10.328,6.318 60.102,21.609 "></polygon><path d="M61.643,78.738l22.232-6.582V17.801l-22.232,6.584V78.738z M73.811,69.257c-1.174,0-2.125-1.19-2.125-2.659  c0-1.468,0.951-2.658,2.125-2.658c1.172,0,2.123,1.19,2.123,2.658C75.934,68.066,74.982,69.257,73.811,69.257z M64.898,32.121  l16.336-4.41v7.117l-16.336,4.409V32.121z M64.898,41.292l16.336-4.41v7.116l-16.336,4.409V41.292z M64.898,50.463l16.336-4.411  v7.116l-16.336,4.411V50.463z"></path><polygon points="83.875,74.893 61.643,81.477 61.643,88.547 83.875,81.963 "></polygon></svg> <!-- -->Server</span></span><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neverlife-Studios/Paper-Siege-Docs/blob/master/src/ServerScriptService/GunSystem/ServerGun.lua#L182"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ServerGun<!-- -->:</code><code class="green_DgR4">Equip</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Equips the gun</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="LoadAnimations"><code style="text-decoration:none">LoadAnimations</code><a href="#LoadAnimations" class="hash-link" aria-label="Direct link to LoadAnimations" title="Direct link to LoadAnimations">​</a></h3><span class="badge_Ba2I" style="color:#00CC67"><span class="badgeTooltip_cWXP">This item only works when running on the server.</span><span class="badgeToolTipTail_H9D_"><svg fill="#00CC67" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 90 90" role="img" aria-label="This item only works when running on the server."><polygon points="6.125,72.421 58.544,88.523 58.544,24.372 6.125,8.269 "></polygon><polygon points="79.818,15.77 79.868,15.755 29.615,1.453 10.328,6.318 60.102,21.609 "></polygon><path d="M61.643,78.738l22.232-6.582V17.801l-22.232,6.584V78.738z M73.811,69.257c-1.174,0-2.125-1.19-2.125-2.659  c0-1.468,0.951-2.658,2.125-2.658c1.172,0,2.123,1.19,2.123,2.658C75.934,68.066,74.982,69.257,73.811,69.257z M64.898,32.121  l16.336-4.41v7.117l-16.336,4.409V32.121z M64.898,41.292l16.336-4.41v7.116l-16.336,4.409V41.292z M64.898,50.463l16.336-4.411  v7.116l-16.336,4.411V50.463z"></path><polygon points="83.875,74.893 61.643,81.477 61.643,88.547 83.875,81.963 "></polygon></svg> <!-- -->Server</span></span><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neverlife-Studios/Paper-Siege-Docs/blob/master/src/ServerScriptService/GunSystem/ServerGun.lua#L198"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ServerGun<!-- -->:</code><code class="green_DgR4">LoadAnimations</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Loads the gun's animations onto the Character's Animator</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="RigGunModelCharacter"><code style="text-decoration:none">RigGunModelCharacter</code><a href="#RigGunModelCharacter" class="hash-link" aria-label="Direct link to RigGunModelCharacter" title="Direct link to RigGunModelCharacter">​</a></h3><span class="badge_Ba2I" style="color:#00CC67"><span class="badgeTooltip_cWXP">This item only works when running on the server.</span><span class="badgeToolTipTail_H9D_"><svg fill="#00CC67" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 90 90" role="img" aria-label="This item only works when running on the server."><polygon points="6.125,72.421 58.544,88.523 58.544,24.372 6.125,8.269 "></polygon><polygon points="79.818,15.77 79.868,15.755 29.615,1.453 10.328,6.318 60.102,21.609 "></polygon><path d="M61.643,78.738l22.232-6.582V17.801l-22.232,6.584V78.738z M73.811,69.257c-1.174,0-2.125-1.19-2.125-2.659  c0-1.468,0.951-2.658,2.125-2.658c1.172,0,2.123,1.19,2.123,2.658C75.934,68.066,74.982,69.257,73.811,69.257z M64.898,32.121  l16.336-4.41v7.117l-16.336,4.409V32.121z M64.898,41.292l16.336-4.41v7.116l-16.336,4.409V41.292z M64.898,50.463l16.336-4.411  v7.116l-16.336,4.411V50.463z"></path><polygon points="83.875,74.893 61.643,81.477 61.643,88.547 83.875,81.963 "></polygon></svg> <!-- -->Server</span></span><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neverlife-Studios/Paper-Siege-Docs/blob/master/src/ServerScriptService/GunSystem/ServerGun.lua#L218"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ServerGun<!-- -->:</code><code class="green_DgR4">RigGunModelCharacter</code><code>(</code><div class="inset_uKQm"><div><code>GunModel<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/Model" target="_blank" rel="noopener noreferrer">Model<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><span class="inlineDescription_G7Er">-- <span>
+<p>The gun model</p>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Rigs the gun model to the Character</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Unequip"><code style="text-decoration:none">Unequip</code><a href="#Unequip" class="hash-link" aria-label="Direct link to Unequip" title="Direct link to Unequip">​</a></h3><span class="badge_Ba2I" style="color:#00CC67"><span class="badgeTooltip_cWXP">This item only works when running on the server.</span><span class="badgeToolTipTail_H9D_"><svg fill="#00CC67" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 90 90" role="img" aria-label="This item only works when running on the server."><polygon points="6.125,72.421 58.544,88.523 58.544,24.372 6.125,8.269 "></polygon><polygon points="79.818,15.77 79.868,15.755 29.615,1.453 10.328,6.318 60.102,21.609 "></polygon><path d="M61.643,78.738l22.232-6.582V17.801l-22.232,6.584V78.738z M73.811,69.257c-1.174,0-2.125-1.19-2.125-2.659  c0-1.468,0.951-2.658,2.125-2.658c1.172,0,2.123,1.19,2.123,2.658C75.934,68.066,74.982,69.257,73.811,69.257z M64.898,32.121  l16.336-4.41v7.117l-16.336,4.409V32.121z M64.898,41.292l16.336-4.41v7.116l-16.336,4.409V41.292z M64.898,50.463l16.336-4.411  v7.116l-16.336,4.411V50.463z"></path><polygon points="83.875,74.893 61.643,81.477 61.643,88.547 83.875,81.963 "></polygon></svg> <!-- -->Server</span></span><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neverlife-Studios/Paper-Siege-Docs/blob/master/src/ServerScriptService/GunSystem/ServerGun.lua#L237"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ServerGun<!-- -->:</code><code class="green_DgR4">Unequip</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Unequips the gun</p>
+</div></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
+    &quot;functions&quot;: [
+        {
+            &quot;name&quot;: &quot;BuildGunModel&quot;,
+            &quot;desc&quot;: &quot;Builds the gun model, creates welds, inserts sounds, particles&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;The gun model&quot;,
+                    &quot;lua_type&quot;: &quot;Model&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;realm&quot;: [
+                &quot;Server&quot;
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 93,
+                &quot;path&quot;: &quot;src/ServerScriptService/GunSystem/ServerGun.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;DerigGunModelCharacter&quot;,
+            &quot;desc&quot;: &quot;Derigs the gun model from the Character&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;realm&quot;: [
+                &quot;Server&quot;
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 139,
+                &quot;path&quot;: &quot;src/ServerScriptService/GunSystem/ServerGun.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;Destroy&quot;,
+            &quot;desc&quot;: &quot;Destroys the gun, removes itself from inventory&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;realm&quot;: [
+                &quot;Server&quot;
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 159,
+                &quot;path&quot;: &quot;src/ServerScriptService/GunSystem/ServerGun.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;Equip&quot;,
+            &quot;desc&quot;: &quot;Equips the gun&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;realm&quot;: [
+                &quot;Server&quot;
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 182,
+                &quot;path&quot;: &quot;src/ServerScriptService/GunSystem/ServerGun.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;LoadAnimations&quot;,
+            &quot;desc&quot;: &quot;Loads the gun&#x27;s animations onto the Character&#x27;s Animator&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;realm&quot;: [
+                &quot;Server&quot;
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 198,
+                &quot;path&quot;: &quot;src/ServerScriptService/GunSystem/ServerGun.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;RigGunModelCharacter&quot;,
+            &quot;desc&quot;: &quot;Rigs the gun model to the Character&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;GunModel&quot;,
+                    &quot;desc&quot;: &quot;The gun model&quot;,
+                    &quot;lua_type&quot;: &quot;Model&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;realm&quot;: [
+                &quot;Server&quot;
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 218,
+                &quot;path&quot;: &quot;src/ServerScriptService/GunSystem/ServerGun.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;Unequip&quot;,
+            &quot;desc&quot;: &quot;Unequips the gun&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;realm&quot;: [
+                &quot;Server&quot;
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 237,
+                &quot;path&quot;: &quot;src/ServerScriptService/GunSystem/ServerGun.lua&quot;
+            }
+        }
+    ],
+    &quot;properties&quot;: [
+        {
+            &quot;name&quot;: &quot;Animations&quot;,
+            &quot;desc&quot;: &quot;Stores all the animation tracks, which are\npreloaded onto the viewmodel&quot;,
+            &quot;lua_type&quot;: &quot;table&quot;,
+            &quot;realm&quot;: [
+                &quot;Server&quot;
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 19,
+                &quot;path&quot;: &quot;src/ServerScriptService/GunSystem/ServerGun.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;BodyshotDamage&quot;,
+            &quot;desc&quot;: &quot;Damage dealt when bullet hits a body part&quot;,
+            &quot;lua_type&quot;: &quot;number&quot;,
+            &quot;realm&quot;: [
+                &quot;Server&quot;
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 25,
+                &quot;path&quot;: &quot;src/ServerScriptService/GunSystem/ServerGun.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;ClassName&quot;,
+            &quot;desc&quot;: &quot;Name of the class&quot;,
+            &quot;lua_type&quot;: &quot;string&quot;,
+            &quot;realm&quot;: [
+                &quot;Server&quot;
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 31,
+                &quot;path&quot;: &quot;src/ServerScriptService/GunSystem/ServerGun.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;Connections&quot;,
+            &quot;desc&quot;: &quot;Stores all the connections, RBXScriptSignal&quot;,
+            &quot;lua_type&quot;: &quot;table&quot;,
+            &quot;realm&quot;: [
+                &quot;Server&quot;
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 37,
+                &quot;path&quot;: &quot;src/ServerScriptService/GunSystem/ServerGun.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;CurrentAmmo&quot;,
+            &quot;desc&quot;: &quot;The current ammo in the loaded gun&quot;,
+            &quot;lua_type&quot;: &quot;number&quot;,
+            &quot;realm&quot;: [
+                &quot;Server&quot;
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 43,
+                &quot;path&quot;: &quot;src/ServerScriptService/GunSystem/ServerGun.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;CurrentFiremode&quot;,
+            &quot;desc&quot;: &quot;The current firemode of the gun&quot;,
+            &quot;lua_type&quot;: &quot;string&quot;,
+            &quot;realm&quot;: [
+                &quot;Server&quot;
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 49,
+                &quot;path&quot;: &quot;src/ServerScriptService/GunSystem/ServerGun.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;Firemodes&quot;,
+            &quot;desc&quot;: &quot;Firemodes available for the gun&quot;,
+            &quot;lua_type&quot;: &quot;table&quot;,
+            &quot;realm&quot;: [
+                &quot;Server&quot;
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 55,
+                &quot;path&quot;: &quot;src/ServerScriptService/GunSystem/ServerGun.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;GunName&quot;,
+            &quot;desc&quot;: &quot;The name of the gun&quot;,
+            &quot;lua_type&quot;: &quot;string&quot;,
+            &quot;realm&quot;: [
+                &quot;Server&quot;
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 61,
+                &quot;path&quot;: &quot;src/ServerScriptService/GunSystem/ServerGun.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;HeadshotDamage&quot;,
+            &quot;desc&quot;: &quot;Damage dealt when bullet hits the head&quot;,
+            &quot;lua_type&quot;: &quot;number&quot;,
+            &quot;realm&quot;: [
+                &quot;Server&quot;
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 67,
+                &quot;path&quot;: &quot;src/ServerScriptService/GunSystem/ServerGun.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;MaxAmmo&quot;,
+            &quot;desc&quot;: &quot;The max ammo a loaded gun can have&quot;,
+            &quot;lua_type&quot;: &quot;number&quot;,
+            &quot;realm&quot;: [
+                &quot;Server&quot;
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 73,
+                &quot;path&quot;: &quot;src/ServerScriptService/GunSystem/ServerGun.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;PlayerProfile&quot;,
+            &quot;desc&quot;: &quot;The PlayerProfile&quot;,
+            &quot;lua_type&quot;: &quot;PlayerProfile&quot;,
+            &quot;realm&quot;: [
+                &quot;Server&quot;
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 79,
+                &quot;path&quot;: &quot;src/ServerScriptService/GunSystem/ServerGun.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;ShootDelay&quot;,
+            &quot;desc&quot;: &quot;Shoot delay for various firemodes&quot;,
+            &quot;lua_type&quot;: &quot;table&quot;,
+            &quot;realm&quot;: [
+                &quot;Server&quot;
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 85,
+                &quot;path&quot;: &quot;src/ServerScriptService/GunSystem/ServerGun.lua&quot;
+            }
+        }
+    ],
+    &quot;types&quot;: [],
+    &quot;name&quot;: &quot;ServerGun&quot;,
+    &quot;desc&quot;: &quot;Handles the server side of the gun&quot;,
+    &quot;realm&quot;: [
+        &quot;Server&quot;
+    ],
+    &quot;source&quot;: {
+        &quot;line&quot;: 12,
+        &quot;path&quot;: &quot;src/ServerScriptService/GunSystem/ServerGun.lua&quot;
+    }
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#types" class="table-of-contents__link toc-highlight">Types</a></li><li><a href="#properties" class="table-of-contents__link toc-highlight">Properties</a><ul><li><a href="#Animations" class="table-of-contents__link toc-highlight">Animations</a></li><li><a href="#BodyshotDamage" class="table-of-contents__link toc-highlight">BodyshotDamage</a></li><li><a href="#ClassName" class="table-of-contents__link toc-highlight">ClassName</a></li><li><a href="#Connections" class="table-of-contents__link toc-highlight">Connections</a></li><li><a href="#CurrentAmmo" class="table-of-contents__link toc-highlight">CurrentAmmo</a></li><li><a href="#CurrentFiremode" class="table-of-contents__link toc-highlight">CurrentFiremode</a></li><li><a href="#Firemodes" class="table-of-contents__link toc-highlight">Firemodes</a></li><li><a href="#GunName" class="table-of-contents__link toc-highlight">GunName</a></li><li><a href="#HeadshotDamage" class="table-of-contents__link toc-highlight">HeadshotDamage</a></li><li><a href="#MaxAmmo" class="table-of-contents__link toc-highlight">MaxAmmo</a></li><li><a href="#PlayerProfile" class="table-of-contents__link toc-highlight">PlayerProfile</a></li><li><a href="#ShootDelay" class="table-of-contents__link toc-highlight">ShootDelay</a></li></ul></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#BuildGunModel" class="table-of-contents__link toc-highlight">:BuildGunModel</a></li><li><a href="#DerigGunModelCharacter" class="table-of-contents__link toc-highlight">:DerigGunModelCharacter</a></li><li><a href="#Destroy" class="table-of-contents__link toc-highlight">:Destroy</a></li><li><a href="#Equip" class="table-of-contents__link toc-highlight">:Equip</a></li><li><a href="#LoadAnimations" class="table-of-contents__link toc-highlight">:LoadAnimations</a></li><li><a href="#RigGunModelCharacter" class="table-of-contents__link toc-highlight">:RigGunModelCharacter</a></li><li><a href="#Unequip" class="table-of-contents__link toc-highlight">:Unequip</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2023 Neverlife Studios. Built with Moonwave and Docusaurus</div></div></div></footer></div>
+<script src="/Paper-Siege-Docs/assets/js/runtime~main.8334222b.js"></script>
+<script src="/Paper-Siege-Docs/assets/js/main.bef82d91.js"></script>
+</body>
+</html>
